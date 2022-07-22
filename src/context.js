@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import items from './data'
 
-export const RoomContext = React.createContext({
-    rooms: [],
-    getRoom : (slug) => {}
-})
+export const RoomContext = React.createContext()
 
 const RoomProvider = ({ children }) => {
     const [roomData, setRoomData] = useState({
