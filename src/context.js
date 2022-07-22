@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import items from './data'
 
-export const RoomContext = React.createContext()
+export const RoomContext = React.createContext({
+    rooms: [],
+    getRoom : (slug) => {}
+})
 
 const RoomProvider = ({ children }) => {
     const [roomData, setRoomData] = useState({
@@ -31,8 +34,20 @@ const RoomProvider = ({ children }) => {
         })
         return tempItems
     } 
+
+    const getRoom = (slug) => {
+        const tempRooms = [...roomData.rooms]
+        const room = tempRooms.find(room => room.slug === slug)
+        return room
+    }
+
+    const roomContext = {
+        roomData: roomData,
+        getRoom : getRoom
+    }
+   
   return (
-      <RoomContext.Provider value={roomData}>
+      <RoomContext.Provider value={roomContext}>
           {children}
    </RoomContext.Provider>
   )
