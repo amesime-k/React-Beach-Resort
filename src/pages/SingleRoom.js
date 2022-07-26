@@ -56,6 +56,14 @@ function SingleRoom() {
           </article>
         </div>
       </section>
+      <section className="room-extras">
+        <h6>Extras</h6>
+        <ul className="extras">
+          {extras.map((extra,index) => {
+            return <li key={index}> - { extra}</li>
+          })}
+      </ul>
+      </section>
     </>
   );
 }

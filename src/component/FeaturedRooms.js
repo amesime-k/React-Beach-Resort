@@ -6,8 +6,7 @@ import Room from './Room'
 
 const FeaturedRooms = () => {
   const roomCtx = useContext(RoomContext)
-  let {roomData} = roomCtx
-  let { loading, featuredRooms: rooms } = roomData;
+  let { loading, featuredRooms: rooms } = roomCtx;
   rooms = rooms.map(room => (
     <Room  key={room.id} room={room} />
   ))
